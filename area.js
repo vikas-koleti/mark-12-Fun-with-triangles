@@ -1,17 +1,17 @@
-const sides = document.querySelectorAll('.side-input');
-const calculateBtn = document.querySelector('#calculate-area-btn');
-const outputEl = document.querySelector('.output');
-
-function calculateAreaOfTriangle(base, height) {
-    const areaOfTriangle = (base*base + height*height)*0.5;
-    return areaOfTriangle;
-} 
-
-function calculateAreaOfTriangle() {
-
-    const areaOfTriangle = calculateAreaOfTriangle(Number(sides[0].value), Number(sides[1].value));
-    const area = areaOfTriangle;
-    outputEl.innerText = "The area of triangle is " + area;
+const inputs = document.querySelectorAll('.area-input');
+const areaBtn = document.querySelector('#area-btn');
+const areaOutput = document.querySelector('#area-output');
+function multiplyBaseAndHeight(base, height) {
+	const multipliedOutput = base * height;
+	return multipliedOutput;
 }
 
-calculateBtn.addEventListener('click', calculateAreaOfTriangle);
+function calculateArea() {
+	//area = (base * height)/2
+	const basexheight = multiplyBaseAndHeight(inputs[0].value, inputs[1].value);
+	const area = basexheight / 2;
+	console.log({ area });
+	areaOutput.innerText = `The area of the triangle is ${area} cm²`;
+}
+
+areaBtn.addEventListener('click', calculateArea);
